@@ -19,6 +19,9 @@ public class Class {
     
     @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "class_number", nullable = false)
+    private String classNumber;
     
     @OneToMany(mappedBy = "userClass")
     private Set<User> users = new HashSet<>();

@@ -42,5 +42,5 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "training_id")
-    private Training training;
+    private Course training;
 }

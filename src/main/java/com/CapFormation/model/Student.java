@@ -4,9 +4,7 @@ import javax.persistence.Entity;
 
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
-import javax.persistence.ManyToMany;
-import java.util.Set;
-import java.util.HashSet;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,14 +16,13 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
-@DiscriminatorValue("learner")
-public class Learner extends User {
+@DiscriminatorValue("student")
+public class Student extends User {
 
 
     @Column(name = "level" , nullable = false)
     private String level;
 
-    @ManyToMany(mappedBy = "learners")
-    private Set<Training> trainings = new HashSet<>();
+    
 
 }
