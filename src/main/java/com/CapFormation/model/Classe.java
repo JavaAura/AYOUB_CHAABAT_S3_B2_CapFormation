@@ -12,7 +12,7 @@ import java.util.HashSet;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "classes")
-public class Class {
+public class Classe {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

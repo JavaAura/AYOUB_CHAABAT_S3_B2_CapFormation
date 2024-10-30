@@ -38,7 +38,7 @@ public class User {
 
     @ManyToOne
     @JoinColumn(name = "class_id", nullable = false)
-    private Class userClass;
+    private Classe userClass;
 
     @ManyToOne
     @JoinColumn(name = "training_id")
