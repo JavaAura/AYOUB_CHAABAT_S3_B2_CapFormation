@@ -2,7 +2,7 @@ package com.capFormation.service.interfaces;
 
 import java.util.Optional;
 
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
 
 import com.capFormation.model.Trainer;

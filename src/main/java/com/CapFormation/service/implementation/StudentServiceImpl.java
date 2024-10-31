@@ -2,42 +2,45 @@ package com.capFormation.service.implementation;
 
 import java.util.Optional;
 
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Page;
+import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.capFormation.repository.StudentRepository;
 
 import com.capFormation.model.Student;
 import com.capFormation.service.interfaces.StudentService;
 
-public class StudentServiceImpl implements StudentService{
+@Service
+public class StudentServiceImpl implements StudentService {
+
+    @Autowired
+    private StudentRepository studentRepository;
 
     @Override
     public Optional<Student> findById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        return studentRepository.findById(id);
     }
 
     @Override
     public Page<Student> findAll(Pageable pageable) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
+        return studentRepository.findAll(pageable);
     }
 
     @Override
     public Student save(Student student) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+        return studentRepository.save(student);
     }
 
     @Override
     public Student update(Student student) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        return studentRepository.save(student);
     }
 
     @Override
     public void delete(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        studentRepository.deleteById(id);
     }
 
+   
 }
