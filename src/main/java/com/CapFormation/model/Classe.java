@@ -23,6 +23,17 @@ public class Classe {
     @Column(name = "class_number", nullable = false)
     private String classNumber;
     
-    @OneToMany(mappedBy = "userClass")
+    @OneToMany(mappedBy = "userClass", cascade = CascadeType.ALL)
     private Set<User> users = new HashSet<>();
+    
+    // Helper methods
+    public void addUser(User user) {
+        users.add(user);
+        user.setUserClass(this);
+    }
+    
+    public void removeUser(User user) {
+        users.remove(user);
+        user.setUserClass(null);
+    }
 }

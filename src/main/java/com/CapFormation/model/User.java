@@ -36,11 +36,19 @@ public class User {
     @Column(name = "email", unique = true , nullable = false)
     private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "class_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "class_id", nullable = true)
     private Classe userClass;
 
-    @ManyToOne
-    @JoinColumn(name = "training_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "training_id", nullable = true)
     private Course training;
+
+    public void setUserClass(Classe classe) {
+        this.userClass = classe;
+    }
+    
+    public void setTraining(Course course) {
+        this.training = course;
+    }
 }

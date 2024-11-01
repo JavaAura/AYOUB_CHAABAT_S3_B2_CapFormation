@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
 public class Student extends User {
 
 
-    @Column(name = "level" , nullable = false)
+    @Column(name = "level" , nullable = true)
     private String level;
 
     

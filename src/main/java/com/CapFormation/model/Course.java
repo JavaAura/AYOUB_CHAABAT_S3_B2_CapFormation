@@ -1,6 +1,9 @@
 package com.capFormation.model;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 import com.capFormation.model.enums.TrainingStatus;
@@ -35,7 +38,10 @@ public class Course {
     @Column(name = "status", nullable = false)
     private TrainingStatus status;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "trainer_id")
     private Trainer trainer;
+    
+    @OneToMany(mappedBy = "training")
+    private Set<User> students = new HashSet<>();
 }
