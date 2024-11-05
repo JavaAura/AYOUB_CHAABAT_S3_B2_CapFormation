@@ -17,16 +17,7 @@ public interface TrainerRepository extends JpaRepository<Trainer, Long> {
     
 
     
-    // Class-related queries
-    Page<Trainer> findByUserClass_Id(Long classId, Pageable pageable);
-    
-    // Course-related queries
-    @Query("SELECT t FROM Trainer t WHERE (SELECT COUNT(c) FROM Course c WHERE c.trainer = t) < :maxCourses")
-    Page<Trainer> findAvailableTrainers(@Param("maxCourses") int maxCourses, Pageable pageable);
-    
-    @Query("SELECT t FROM Trainer t WHERE NOT EXISTS (SELECT c FROM Course c WHERE c.trainer = t)")
-    Page<Trainer> findTrainersWithoutCourses(Pageable pageable);
-    
+
     // Validation
     boolean existsByEmail(String email);
 }
